@@ -59,4 +59,21 @@ public class ProductsController {
         productService.saveProduct(new Product(id, title, cost));
         return "redirect:/show_all";
     }
+    //GET http://localhost:8189/app/price_up/{id}
+    @GetMapping("/price_up/{id}")
+    public String priceUp(@PathVariable Long id) {
+        productService.priceUp(id);
+        return "redirect:/show_all";
+    }
+
+    //GET http://localhost:8189/app/price_down/{id}
+    @GetMapping("/price_down/{id}")
+    public String priceDown(@PathVariable Long id) {
+        productService.priceDown(id);
+        return "redirect:/show_all";
+    }
 }
+
+
+
+

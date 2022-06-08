@@ -28,4 +28,12 @@ public class ProductsService {
     public void saveProduct(Product product) {
         productRepository.saveProduct(product);
     }
+
+    public void priceUp(Long id) {
+        productRepository.priceUp(getProduct(id));
+    }
+
+    public void priceDown(Long id) {
+        productRepository.priceDown(getProduct(id));
+    }
 }

@@ -17,6 +17,9 @@
       <td>ID</td>
       <td>Title</td>
       <td>Price</td>
+      <td>Info</td>
+      <td>Price Up</td>
+      <td>Price Down</td>
       <td></td>
     </tr>
     </thead>
@@ -27,6 +30,12 @@
       <td th:text="${prods.cost}"></td>
       <td>
         <a th:href="@{'/show/' + ${prods.id}}" class="btn btn-secondary">Info</a>
+      </td>
+      <td>
+        <a th:href="@{'/price_up/' + ${prods.id}}" class="btn btn-secondary">+</a>
+      </td>
+      <td>
+        <a th:href="@{'/price_down/' + ${prods.id}}" class="btn btn-secondary">-</a>
       </td>
     </tr>
     </tbody>

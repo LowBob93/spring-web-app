@@ -41,9 +41,23 @@ public class ProductRepo {
         public void saveProduct(Product product) {
             productList.add(product);
         }
+
+
     public void delete(Product product){
              productList.remove(product);
     }
+
+    public void priceUp(Product product) {
+
+        product.setCost(product.getCost() + 1.0);
+    }
+
+    public void priceDown(Product product) {
+        product.setCost(product.getCost() - 1.0);
+    }
+
+
+
 
     }
 
