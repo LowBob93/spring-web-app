@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Product List</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+          crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <td>ID</td>
+      <td>Title</td>
+      <td>Price</td>
+      <td>Info</td>
+      <td>Price Up</td>
+      <td>Price Down</td>
+      <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="prods : ${products}">
+      <td th:text="${prods.id}"></td>
+      <td th:text="${prods.title}"></td>
+      <td th:text="${prods.cost}"></td>
+      <td>
+        <a th:href="@{'/show/' + ${prods.id}}" class="btn btn-secondary">Info</a>
+      </td>
+      <td>
+        <a th:href="@{'/price_up/' + ${prods.id}}" class="btn btn-secondary">+</a>
+      </td>
+      <td>
+        <a th:href="@{'/price_down/' + ${prods.id}}" class="btn btn-secondary">-</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <span th:text="${'Total : ' + products.size() }"/>
+  <h2></h2>
+  <a th:href="@{'/create'}" type="button" class="btn btn-secondary">Add product</a>
+  <br>
+  <br>
+  <a th:href="@{'/'}" type="button" class="btn btn-secondary">Main page</a>
+</div>
+</body>
+</html>
