@@ -1,10 +1,22 @@
 package ru.gb.webapp.Models;
 
+import javax.persistence.*;
 
+@Entity
+@Table(name = "products")
 public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+
+    @Column(name="title")
     private String title;
-    private double cost;
+
+    @Column(name="cost")
+    private Double cost;
 
     public Product(Long id, String title, double cost) {
         this.id = id;
@@ -33,6 +45,11 @@ public class Product {
     }
 
     public void setCost(double cost) {
+        this.cost = cost;
+    }
+
+    public Product(String title, Double cost) {
+        this.title = title;
         this.cost = cost;
     }
 
